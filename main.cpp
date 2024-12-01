@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 struct Node {
     int value;
@@ -85,8 +86,24 @@ void getNodesCount(Node* rootNode, int* count) {
     }
 }
 
+std::vector<int> getTreeValues(int valuesCount) {
+    std::vector<int> values;
+
+    int currentValue;
+    for (int count = 0; count < valuesCount; count++) {
+        std::cout << "Type the number: " << std::endl;
+        std::cin >> currentValue;
+        values.push_back(currentValue);
+    }
+    
+    return values;
+}
+
 int main() {
-    const int values[12] = {100, 50, 200, 70, 140, 30, 350, 117, 400, 42, 80, 65};
+    int valuesCount = 0;
+    std::cout << "Enter the number of values you want in the tree: " << std::endl;
+    std::cin >> valuesCount;
+    std::vector<int> values = getTreeValues(valuesCount);
 
     Node* rootNode = nullptr;
 
