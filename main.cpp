@@ -65,15 +65,15 @@ void displayBST(Node* rootNode, int level = 0) {
     }
 }
 
-void getLeafCount(Node* rootNode, int* count) {
+void getLeavesCount(Node* rootNode, int* count) {
     if (rootNode->leftChild == nullptr && rootNode->rightChild == nullptr) {
         *count += 1;
     } else {
         if (rootNode->leftChild != nullptr) {
-            getLeafCount(rootNode->leftChild, count);
+            getLeavesCount(rootNode->leftChild, count);
         }
         if (rootNode->rightChild != nullptr) {
-            getLeafCount(rootNode->rightChild, count);
+            getLeavesCount(rootNode->rightChild, count);
         }
     }
 }
@@ -115,7 +115,7 @@ int main() {
     displayBST(rootNode);
 
     int leafCount = 0;
-    getLeafCount(rootNode, &leafCount);
+    getLeavesCount(rootNode, &leafCount);
     std::cout << "Leaf count: " << leafCount << std::endl;
 
     int nodesCount = 0;
